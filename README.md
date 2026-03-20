@@ -1,16 +1,56 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/2c91ec59-158f-4c51-afc9-e4529ab416d6" alt="Logo" width="220" />
 
-  # PWF 20230140208
+# 🚀 Pemrograman Web Framework
 
-  **Muhammad Array Al-khozini**  
-  **NIM: 20230140208**
+<img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="320" alt="Laravel Logo" />
+
+<br/>
+
+### Muhammad Array Al-khozini
+**NIM:** 20230140208
+
+<br/>
+
+![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.x-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+
 </div>
 
 ---
 
+## 📖 Tentang Repository
+
+Repository ini berisi kumpulan tugas praktikum mata kuliah **Pemrograman Web Framework** yang dikembangkan menggunakan **Laravel 12**
+---
+
 ## 📚 Daftar Tugas
 
-- [Pertemuan 1 - Tugas 1](./Tugas1.md)
-- [Pertemuan 2 - Tugas 2](./Pertemuan%202/Tugas2.md)
-- [Pertemuan 3 - Tugas 3](./Pertemuan%203/Tugas3.md)
+| No | Tugas | Topik | Link |
+|----|-------|-------|------|
+| 1 | Tugas 1 | Pengenalan dan Instalasi Laravel 12 | [📄 Lihat Tugas](./Tugas1.md) |
+| 2 | Tugas 2 | Pengenalan MVC dan Instalasi Breeze | [📄 Lihat Tugas](./Pertemuan%202/Tugas2.md) |
+| 3 | Tugas 3 | ERD, Model, dan Migration Database | [📄 Lihat Tugas](./Pertemuan%203/Tugas3.md) |
+| 4 | Tugas 4 | CRUD dan Validasi Input | [📄 Lihat Tugas](./Pertemuan%204/Tugas4.md) |
+
+---
+
+
+## 🛠️ Teknologi yang Digunakan
+
+| Teknologi | Keterangan |
+|-----------|------------|
+| **Laravel 12** | PHP Web Framework |
+| **Laravel Breeze** | Autentikasi (Login/Register) |
+| **Blade** | Template Engine |
+| **Tailwind CSS** | CSS Framework |
+| **MySQL** | Database |
+| **Laragon** | Local Development Environment |
+
+---
+
+<div align="center">
+
+**Muhammad Array Al-khozini**
+</div>
