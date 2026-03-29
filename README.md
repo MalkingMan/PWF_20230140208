@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Pemrograman Web Framework
+#  Pemrograman Web Framework
 
 <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="320" alt="Laravel Logo" />
 
@@ -37,7 +37,7 @@ Repository ini berisi kumpulan tugas praktikum mata kuliah **Pemrograman Web Fra
 ---
 
 
-## 🛠️ Teknologi yang Digunakan
+##  Teknologi yang Digunakan
 
 | Teknologi | Keterangan |
 |-----------|------------|
