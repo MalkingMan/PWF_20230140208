@@ -20,12 +20,12 @@
 
 ---
 
-## 📖 Tentang Repository
+##  Tentang Repository
 
 Repository ini berisi kumpulan tugas praktikum mata kuliah **Pemrograman Web Framework** yang dikembangkan menggunakan **Laravel 12**
 ---
 
-## 📚 Daftar Tugas
+##  Daftar Tugas
 
 | No | Tugas | Topik | Link |
 |----|-------|-------|------|
