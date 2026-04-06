@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Pemrograman Web Framework
+# Pemrograman Web Framework
 
 <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="320" alt="Laravel Logo" />
 
@@ -20,20 +20,20 @@
 
 ---
 
-## 📖 Tentang Repository
+## Tentang Repository
 
-Repository ini berisi kumpulan tugas praktikum mata kuliah **Pemrograman Web Framework** yang dikembangkan menggunakan **Laravel 12**
+Repository ini berisi kumpulan tugas praktikum mata kuliah Pemrograman Web Framework yang dikembangkan menggunakan Laravel 12
 ---
 
-## 📚 Daftar Tugas
+## Daftar Tugas
 
 | No | Tugas | Topik | Link |
 |----|-------|-------|------|
-| 1 | Tugas 1 | Pengenalan dan Instalasi Laravel 12 | [📄 Lihat Tugas](./Tugas1.md) |
-| 2 | Tugas 2 | Pengenalan MVC dan Instalasi Breeze | [📄 Lihat Tugas](./Pertemuan%202/Tugas2.md) |
-| 3 | Tugas 3 | ERD, Model, dan Migration Database | [📄 Lihat Tugas](./Pertemuan%203/Tugas3.md) |
-| 4 | Tugas 4 | CRUD dan Validasi Input | [📄 Lihat Tugas](./Pertemuan%204/Tugas4.md) |
-
+| 1 | Tugas 1 | Pengenalan dan Instalasi Laravel 12 | [Lihat Tugas](./Tugas1.md) |
+| 2 | Tugas 2 | Pengenalan MVC dan Instalasi Breeze | [Lihat Tugas](./Pertemuan%202/Tugas2.md) |
+| 3 | Tugas 3 | ERD, Model, dan Migration Database | [Lihat Tugas](./Pertemuan%203/Tugas3.md) |
+| 4 | Tugas 4 | CRUD dan Validasi Input | [Lihat Tugas](./Pertemuan%204/Tugas4.md) |
+| 5 | Tugas 5 | CRUD dan Validasi Input | [Lihat Tugas](./Pertemuan%205/Tugas5.md) |
 ---
 
 
@@ -42,8 +42,6 @@ Repository ini berisi kumpulan tugas praktikum mata kuliah **Pemrograman Web Fra
 | Teknologi | Keterangan |
 |-----------|------------|
 | **Laravel 12** | PHP Web Framework |
-| **Laravel Breeze** | Autentikasi (Login/Register) |
-| **Blade** | Template Engine |
 | **Tailwind CSS** | CSS Framework |
 | **MySQL** | Database |
 | **Laragon** | Local Development Environment |
