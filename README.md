@@ -1,6 +1,10 @@
 <div align="center">
 
+<<<<<<< HEAD
 # Pemrograman Web Framework
+=======
+#  Pemrograman Web Framework
+>>>>>>> 1f4d787d9110f28fb98e9be3baabe7b40b646803
 
 <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="320" alt="Laravel Logo" />
 
@@ -20,12 +24,20 @@
 
 ---
 
+<<<<<<< HEAD
 ## Tentang Repository
+=======
+##  Tentang Repository
+>>>>>>> 1f4d787d9110f28fb98e9be3baabe7b40b646803
 
 Repository ini berisi kumpulan tugas praktikum mata kuliah Pemrograman Web Framework yang dikembangkan menggunakan Laravel 12
 ---
 
+<<<<<<< HEAD
 ## Daftar Tugas
+=======
+##  Daftar Tugas
+>>>>>>> 1f4d787d9110f28fb98e9be3baabe7b40b646803
 
 | No | Tugas | Topik | Link |
 |----|-------|-------|------|
@@ -37,7 +49,7 @@ Repository ini berisi kumpulan tugas praktikum mata kuliah Pemrograman Web Frame
 ---
 
 
-## 🛠️ Teknologi yang Digunakan
+##  Teknologi yang Digunakan
 
 | Teknologi | Keterangan |
 |-----------|------------|
