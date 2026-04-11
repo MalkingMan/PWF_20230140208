@@ -28,6 +28,7 @@
                         </div>
                     @endif
 
+                    {{-- Form Update --}}
                     <form action="{{ route('product.update', $product) }}" method="POST" class="space-y-5">
                         @csrf
                         @method('PUT')
@@ -109,30 +110,31 @@
                             @enderror
                         </div>
 
-                        {{-- Buttons --}}
-                        <div class="flex items-center justify-between pt-2">
-                            <div class="flex items-center gap-3">
-                                <button type="submit"
-                                        class="px-6 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">
-                                    Perbarui Produk
-                                </button>
-                                <a href="{{ route('product.index') }}"
-                                   class="px-6 py-2 bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-                                    Batal
-                                </a>
-                            </div>
-                            {{-- Delete Button --}}
-                            <form action="{{ route('product.destroy', $product) }}" method="POST"
-                                  onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk ini?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                        class="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition">
-                                    Hapus Produk
-                                </button>
-                            </form>
+                        {{-- Tombol Update & Batal --}}
+                        <div class="flex items-center gap-3 pt-2">
+                            <button type="submit"
+                                    class="px-6 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">
+                                Perbarui Produk
+                            </button>
+                            <a href="{{ route('product.index') }}"
+                               class="px-6 py-2 bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                                Batal
+                            </a>
                         </div>
                     </form>
+
+                    {{-- Form Hapus — TERPISAH dari form update --}}
+                    <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <form action="{{ route('product.destroy', $product) }}" method="POST"
+                              onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk ini?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                    class="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition">
+                                Hapus Produk
+                            </button>
+                        </form>
+                    </div>
 
                 </div>
             </div>

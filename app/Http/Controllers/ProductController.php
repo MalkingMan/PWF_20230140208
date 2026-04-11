@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -28,17 +29,12 @@ class ProductController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * Validasi menggunakan StoreProductRequest (Form Request).
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        $request->validate([
-            'name'    => 'required|string|max:255',
-            'qty'     => 'required|integer|min:0',
-            'price'   => 'required|numeric|min:0',
-            'user_id' => 'required|exists:users,id',
-        ]);
-
-        Product::create($request->only('name', 'qty', 'price', 'user_id'));
+        // Validasi sudah otomatis dijalankan oleh StoreProductRequest
+        Product::create($request->validated());
 
         return redirect()->route('product.index')
             ->with('success', 'Produk berhasil ditambahkan!');
@@ -66,19 +62,14 @@ class ProductController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * Validasi menggunakan UpdateProductRequest (Form Request).
      */
-    public function update(Request $request, Product $product)
+    public function update(UpdateProductRequest $request, Product $product)
     {
         $this->authorize('update', $product);
 
-        $request->validate([
-            'name'    => 'required|string|max:255',
-            'qty'     => 'required|integer|min:0',
-            'price'   => 'required|numeric|min:0',
-            'user_id' => 'required|exists:users,id',
-        ]);
-
-        $product->update($request->only('name', 'qty', 'price', 'user_id'));
+        // Validasi sudah otomatis dijalankan oleh UpdateProductRequest
+        $product->update($request->validated());
 
         return redirect()->route('product.index')
             ->with('success', 'Produk berhasil diperbarui!');
