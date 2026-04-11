@@ -45,7 +45,8 @@ Repository ini berisi kumpulan tugas praktikum mata kuliah Pemrograman Web Frame
 | 2 | Tugas 2 | Pengenalan MVC dan Instalasi Breeze | [Lihat Tugas](./Pertemuan%202/Tugas2.md) |
 | 3 | Tugas 3 | ERD, Model, dan Migration Database | [Lihat Tugas](./Pertemuan%203/Tugas3.md) |
 | 4 | Tugas 4 | CRUD dan Validasi Input | [Lihat Tugas](./Pertemuan%204/Tugas4.md) |
-| 5 | Tugas 5 | CRUD dan Validasi Input | [Lihat Tugas](./Pertemuan%205/Tugas5.md) |
+| 5 | Tugas 5 | Otorisasi Role, Gate, dan Policy | [Lihat Tugas](./Pertemuan%205/Tugas5.md) |
+| 6 | Tugas 6 | Validasi  | [Lihat Tugas](./Pertemuan%206/Tugas6.md) |
 ---
 
 
