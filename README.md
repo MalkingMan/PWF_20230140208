@@ -1,10 +1,8 @@
 <div align="center">
 
-<<<<<<< HEAD
+
 # Pemrograman Web Framework
-=======
-#  Pemrograman Web Framework
->>>>>>> 1f4d787d9110f28fb98e9be3baabe7b40b646803
+
 
 <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="320" alt="Laravel Logo" />
 
@@ -24,20 +22,17 @@
 
 ---
 
-<<<<<<< HEAD
+
 ## Tentang Repository
-=======
-##  Tentang Repository
->>>>>>> 1f4d787d9110f28fb98e9be3baabe7b40b646803
+
 
 Repository ini berisi kumpulan tugas praktikum mata kuliah Pemrograman Web Framework yang dikembangkan menggunakan Laravel 12
 ---
 
-<<<<<<< HEAD
+
 ## Daftar Tugas
-=======
-##  Daftar Tugas
->>>>>>> 1f4d787d9110f28fb98e9be3baabe7b40b646803
+
+
 
 | No | Tugas | Topik | Link |
 |----|-------|-------|------|
@@ -47,6 +42,7 @@ Repository ini berisi kumpulan tugas praktikum mata kuliah Pemrograman Web Frame
 | 4 | Tugas 4 | CRUD dan Validasi Input | [Lihat Tugas](./Pertemuan%204/Tugas4.md) |
 | 5 | Tugas 5 | Otorisasi Role, Gate, dan Policy | [Lihat Tugas](./Pertemuan%205/Tugas5.md) |
 | 6 | Tugas 6 | Validasi  | [Lihat Tugas](./Pertemuan%206/Tugas6.md) |
+| 7 | Tugas 7 | Component Berjalan | [Lihat Tugas](./Pertemuan%207/Tugas7.md) |
 ---
 
 
