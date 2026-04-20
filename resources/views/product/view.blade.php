@@ -1,80 +1,139 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{-- Judul halaman --}}
+            <h2 class="font-bold text-2xl text-white leading-tight">
                 Detail Produk
             </h2>
-            <div class="flex items-center gap-2">
-                <a href="{{ route('product.index') }}"
-                   class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-                    Kembali
-                </a>
+
+            {{-- Tombol aksi: Edit, Hapus --}}
+            <div class="flex items-center gap-3">
+                {{-- Edit --}}
+                @can('update', $product)
                 <a href="{{ route('product.edit', $product) }}"
-                   class="px-4 py-2 text-sm font-medium text-white bg-yellow-500 rounded-lg hover:bg-yellow-600 transition">
+                    class="inline-flex items-center gap-2 px-4 py-1.5 text-sm font-medium text-yellow-500
+                           bg-transparent rounded-lg border border-yellow-500
+                           hover:bg-yellow-500 hover:text-white transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
                     Edit
                 </a>
-                <form action="{{ route('product.destroy', $product) }}" method="POST"
-                      onsubmit="return confirm('Hapus produk ini?')" class="inline">
+                @endcan
+
+                {{-- Hapus --}}
+                @can('delete', $product)
+                <form action="{{ route('product.destroy', $product) }}"
+                    method="POST"
+                    class="inline"
+                    onsubmit="return confirm('Yakin ingin menghapus produk \'{{ $product->name }}\'?')">
                     @csrf
                     @method('DELETE')
                     <button type="submit"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition">
-                        Hapus
+                        class="inline-flex items-center gap-2 px-4 py-1.5 text-sm font-medium text-red-500
+                               bg-transparent rounded-lg border border-red-500
+                               hover:bg-red-500 hover:text-white transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                        Delete
                     </button>
                 </form>
+                @endcan
             </div>
         </div>
     </x-slot>
 
-    <div class="py-8">
-        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
-                <table class="w-full text-sm text-left">
+    <div class="py-10">
+        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+
+            {{-- Card detail produk --}}
+            <div class="rounded-xl border border-gray-600 overflow-hidden bg-transparent">
+
+                <table class="w-full text-sm text-left border-collapse">
                     <tbody>
-                        <tr class="border-b border-gray-200 dark:border-gray-700">
-                            <td class="px-6 py-4 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider w-40 align-top">Nama Produk</td>
-                            <td class="px-6 py-4 text-lg font-bold text-gray-900 dark:text-gray-100">{{ $product->name }}</td>
+
+                        {{-- NAMA PRODUK --}}
+                        <tr class="border-b border-gray-600">
+                            <td class="px-6 py-3 text-xs font-semibold uppercase tracking-wider
+                                       text-gray-400 w-44 align-middle border-r border-gray-600">
+                                Nama Produk
+                            </td>
+                            <td class="px-6 py-3 text-base font-bold text-white">
+                                {{ $product->name }}
+                            </td>
                         </tr>
-                        <tr class="border-b border-gray-200 dark:border-gray-700">
-                            <td class="px-6 py-4 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider w-40 align-top">Jumlah (Qty)</td>
-                            <td class="px-6 py-4">
+
+                        {{-- JUMLAH (QTY) --}}
+                        <tr class="border-b border-gray-600">
+                            <td class="px-6 py-3 text-xs font-semibold uppercase tracking-wider
+                                       text-gray-400 w-44 align-middle border-r border-gray-600">
+                                Jumlah (QTY)
+                            </td>
+                            <td class="px-6 py-3 text-sm font-medium text-white">
                                 @if ($product->qty > 10)
-                                    <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400">
-                                        {{ $product->qty }} unit — In Stock
-                                    </span>
+                                {{ $product->qty }} unit — In Stock
                                 @elseif ($product->qty > 0)
-                                    <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-400">
-                                        {{ $product->qty }} unit — Low Stock
-                                    </span>
+                                {{ $product->qty }} unit — Low Stock
                                 @else
-                                    <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400">
-                                        0 unit — Habis
-                                    </span>
+                                0 unit — Habis
                                 @endif
                             </td>
                         </tr>
-                        <tr class="border-b border-gray-200 dark:border-gray-700">
-                            <td class="px-6 py-4 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider w-40 align-top">Harga</td>
-                            <td class="px-6 py-4 text-lg font-bold text-gray-900 dark:text-gray-100">Rp {{ number_format($product->price, 0, ',', '.') }}</td>
-                        </tr>
-                        <tr class="border-b border-gray-200 dark:border-gray-700">
-                            <td class="px-6 py-4 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider w-40 align-top">Pemilik</td>
-                            <td class="px-6 py-4">
-                                <p class="font-semibold text-gray-900 dark:text-gray-100">{{ $product->user->name ?? '-' }}</p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{{ $product->user->email ?? '' }}</p>
+
+                        {{-- HARGA --}}
+                        <tr class="border-b border-gray-600">
+                            <td class="px-6 py-3 text-xs font-semibold uppercase tracking-wider
+                                       text-gray-400 w-44 align-middle border-r border-gray-600">
+                                Harga
+                            </td>
+                            <td class="px-6 py-3 text-base font-bold text-white">
+                                Rp {{ number_format($product->price, 0, ',', '.') }}
                             </td>
                         </tr>
-                        <tr class="border-b border-gray-200 dark:border-gray-700">
-                            <td class="px-6 py-4 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider w-40 align-top">Dibuat Pada</td>
-                            <td class="px-6 py-4 text-gray-700 dark:text-gray-300">{{ $product->created_at->format('d M Y, H:i') }}</td>
+
+                        {{-- PEMILIK --}}
+                        <tr class="border-b border-gray-600">
+                            <td class="px-6 py-3 text-xs font-semibold uppercase tracking-wider
+                                       text-gray-400 w-44 align-middle border-r border-gray-600">
+                                Pemilik
+                            </td>
+                            <td class="px-6 py-3">
+                                <p class="font-bold text-white text-sm">
+                                    {{ $product->user->name ?? '-' }}
+                                </p>
+                                <p class="text-sm text-gray-400">
+                                    {{ $product->user->email ?? '' }}
+                                </p>
+                            </td>
                         </tr>
+
+                        {{-- DIBUAT PADA --}}
+                        <tr class="border-b border-gray-600">
+                            <td class="px-6 py-3 text-xs font-semibold uppercase tracking-wider
+                                       text-gray-400 w-44 align-middle border-r border-gray-600">
+                                Dibuat Pada
+                            </td>
+                            <td class="px-6 py-3 text-sm text-gray-300">
+                                {{ $product->created_at->format('d M Y, H:i') }}
+                            </td>
+                        </tr>
+
+                        {{-- DIPERBARUI --}}
                         <tr>
-                            <td class="px-6 py-4 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider w-40 align-top">Diperbarui</td>
-                            <td class="px-6 py-4 text-gray-700 dark:text-gray-300">{{ $product->updated_at->format('d M Y, H:i') }}</td>
+                            <td class="px-6 py-3 text-xs font-semibold uppercase tracking-wider
+                                       text-gray-400 w-44 align-middle border-r border-gray-600">
+                                Diperbarui
+                            </td>
+                            <td class="px-6 py-3 text-sm text-gray-300">
+                                {{ $product->updated_at->format('d M Y, H:i') }}
+                            </td>
                         </tr>
+
                     </tbody>
                 </table>
             </div>
+
         </div>
     </div>
 </x-app-layout>
