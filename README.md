@@ -43,7 +43,7 @@ Repository ini berisi kumpulan tugas praktikum mata kuliah Pemrograman Web Frame
 | 5 | Tugas 5 | Otorisasi Role, Gate, dan Policy | [Lihat Tugas](./Pertemuan%205/Tugas5.md) |
 | 6 | Tugas 6 | Validasi  | [Lihat Tugas](./Pertemuan%206/Tugas6.md) |
 | 7 | Tugas 7 | Component Berjalan | [Lihat Tugas](./Pertemuan%207/Tugas7.md) |
-| 8 | Tugas 8 | UCP 1 | [Lihat Tugas](./Pertemuan%208/ucp1_20230140208.md) |
+| 8 | Tugas 8 | UCP 1 | [Lihat Tugas](./Pertemuan%208%20(UCP%201)/ucp1_20230140208.md) |
 ---
 
 
