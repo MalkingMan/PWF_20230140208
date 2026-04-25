@@ -5,9 +5,12 @@
                class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition">
                 ← Kembali
             </a>
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('Tambah Produk Baru') }}
-            </h2>
+            <div>
+                <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                    Add Product
+                </h2>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Fill in the details to add a new product</p>
+            </div>
         </div>
     </x-slot>
 
@@ -38,7 +41,7 @@
                             </label>
                             <input type="text" id="name" name="name"
                                    value="{{ old('name') }}"
-                                   placeholder="Contoh: Laptop Asus ROG"
+                                   placeholder="e.g. Wireless Headphones"
                                    class="w-full px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500
                                           bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
                                           border-gray-300 dark:border-gray-600
@@ -48,75 +51,73 @@
                             @enderror
                         </div>
 
-                        {{-- Quantity --}}
+                        {{-- Kategori --}}
                         <div>
-                            <label for="qty" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                Jumlah (Qty) <span class="text-red-500">*</span>
+                            <label for="category_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                Kategori
                             </label>
-                            <input type="number" id="qty" name="qty"
-                                   value="{{ old('qty') }}"
-                                   min="0"
-                                   placeholder="Contoh: 50"
-                                   class="w-full px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500
-                                          bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-                                          border-gray-300 dark:border-gray-600
-                                          @error('qty') border-red-500 @enderror">
-                            @error('qty')
-                                <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        {{-- Harga --}}
-                        <div>
-                            <label for="price" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                Harga (Rp) <span class="text-red-500">*</span>
-                            </label>
-                            <input type="number" id="price" name="price"
-                                   value="{{ old('price') }}"
-                                   min="0"
-                                   step="0.01"
-                                   placeholder="Contoh: 15000000"
-                                   class="w-full px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500
-                                          bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-                                          border-gray-300 dark:border-gray-600
-                                          @error('price') border-red-500 @enderror">
-                            @error('price')
-                                <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        {{-- Pemilik --}}
-                        <div>
-                            <label for="user_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                Pemilik (Owner) <span class="text-red-500">*</span>
-                            </label>
-                            <select id="user_id" name="user_id"
+                            <select id="category_id" name="category_id"
                                     class="w-full px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500
                                            bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
                                            border-gray-300 dark:border-gray-600
-                                           @error('user_id') border-red-500 @enderror">
-                                <option value="">-- Pilih Pemilik --</option>
-                                @foreach ($users as $user)
-                                    <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
-                                        {{ $user->name }}
+                                           @error('category_id') border-red-500 @enderror">
+                                <option value="">-- Pilih Kategori --</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                        {{ $category->name }}
                                     </option>
                                 @endforeach
                             </select>
-                            @error('user_id')
+                            @error('category_id')
                                 <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
 
+                        {{-- Quantity & Harga (2 kolom) --}}
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="qty" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Quantity <span class="text-red-500">*</span>
+                                </label>
+                                <input type="number" id="qty" name="qty"
+                                       value="{{ old('qty', 0) }}"
+                                       min="0"
+                                       class="w-full px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500
+                                              bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
+                                              border-gray-300 dark:border-gray-600
+                                              @error('qty') border-red-500 @enderror">
+                                @error('qty')
+                                    <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div>
+                                <label for="price" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Price (Rp) <span class="text-red-500">*</span>
+                                </label>
+                                <input type="number" id="price" name="price"
+                                       value="{{ old('price', 0) }}"
+                                       min="0"
+                                       step="0.01"
+                                       class="w-full px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500
+                                              bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
+                                              border-gray-300 dark:border-gray-600
+                                              @error('price') border-red-500 @enderror">
+                                @error('price')
+                                    <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
                         {{-- Buttons --}}
-                        <div class="flex items-center gap-3 pt-2">
-                            <button type="submit"
-                                    class="px-6 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">
-                                Simpan Produk
-                            </button>
+                        <div class="flex items-center justify-end gap-3 pt-2">
                             <a href="{{ route('product.index') }}"
                                class="px-6 py-2 bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-                                Batal
+                                Cancel
                             </a>
+                            <button type="submit"
+                                    class="px-6 py-2 bg-indigo-500 text-white text-sm font-medium rounded-lg hover:bg-indigo-600 transition">
+                                Save Product
+                            </button>
                         </div>
                     </form>
 

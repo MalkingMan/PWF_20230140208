@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Category;
 use App\Models\Product;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -23,18 +24,20 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-        return view('product.create', compact('users'));
+        $categories = Category::orderBy('name')->get();
+        return view('product.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
-     * Validasi menggunakan StoreProductRequest (Form Request).
+     * user_id otomatis dari user yang sedang login.
      */
     public function store(StoreProductRequest $request)
     {
-        // Validasi sudah otomatis dijalankan oleh StoreProductRequest
-        Product::create($request->validated());
+        Product::create(array_merge(
+            $request->validated(),
+            ['user_id' => Auth::id()]
+        ));
 
         return redirect()->route('product.index')
             ->with('success', 'Produk berhasil ditambahkan!');
@@ -56,19 +59,18 @@ class ProductController extends Controller
     {
         $this->authorize('update', $product);
 
-        $users = User::all();
-        return view('product.edit', compact('product', 'users'));
+        $categories = Category::orderBy('name')->get();
+        return view('product.edit', compact('product', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
-     * Validasi menggunakan UpdateProductRequest (Form Request).
+     * user_id tidak diubah saat update (tetap milik pemilik asal).
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
         $this->authorize('update', $product);
 
-        // Validasi sudah otomatis dijalankan oleh UpdateProductRequest
         $product->update($request->validated());
 
         return redirect()->route('product.index')

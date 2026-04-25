@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use App\Models\Kategori;
 
 class Product extends Model
 {
@@ -13,15 +11,22 @@ class Product extends Model
         'qty',
         'price',
         'user_id',
+        'category_id',
     ];
 
+    /**
+     * Product dimiliki oleh satu User.
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function kategoris()
+    /**
+     * Product termasuk dalam satu Category.
+     */
+    public function category()
     {
-        return $this->hasMany(Kategori::class);
+        return $this->belongsTo(Category::class);
     }
 }

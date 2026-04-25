@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -23,7 +24,10 @@ Route::middleware('auth')->group(function () {
     // Product CRUD routes (otorisasi per-item via Policy)
     Route::resource('product', ProductController::class);
 
-    // Kategori CRUD routes (diamankan Gate: hanya admin)
+    // Category CRUD routes (diamankan Gate: hanya admin)
+    Route::resource('category', CategoryController::class)->middleware('can:manage-product');
+
+    // Kategori lama (bisa dihapus jika tidak dipakai)
     Route::resource('kategori', KategoriController::class)->middleware('can:manage-product');
 });
 

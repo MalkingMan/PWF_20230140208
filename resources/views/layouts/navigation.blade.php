@@ -15,12 +15,14 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    @can('manage-product')
+                    {{-- Product: bisa diakses semua user yang login --}}
                     <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.*')">
                         {{ __('Product') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('kategori.index')" :active="request()->routeIs('kategori.*')">
-                        {{ __('Kategori') }}
+                    {{-- Category: hanya admin --}}
+                    @can('manage-product')
+                    <x-nav-link :href="route('category.index')" :active="request()->routeIs('category.*')">
+                        {{ __('Category') }}
                     </x-nav-link>
                     @endcan
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
@@ -81,12 +83,14 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            @can('manage-product')
+            {{-- Product: bisa diakses semua user yang login --}}
             <x-responsive-nav-link :href="route('product.index')" :active="request()->routeIs('product.*')">
                 {{ __('Product') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('kategori.index')" :active="request()->routeIs('kategori.*')">
-                {{ __('Kategori') }}
+            {{-- Category: hanya admin --}}
+            @can('manage-product')
+            <x-responsive-nav-link :href="route('category.index')" :active="request()->routeIs('category.*')">
+                {{ __('Category') }}
             </x-responsive-nav-link>
             @endcan
             <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">
